@@ -1,5 +1,5 @@
 import { prisma } from "@/db";
 
-export function getTodos() {
+export async function getTodos() {
   return prisma.todo.findMany();
 }

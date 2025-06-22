@@ -1,9 +1,8 @@
+"use server";
 import { prisma } from "@/db";
 import { redirect } from "next/navigation";
 
 export async function editTodo(formData: FormData) {
-  "use server";
-  
   const id = formData.get("id") as string;
   const todo = formData.get("todo") as string;
 

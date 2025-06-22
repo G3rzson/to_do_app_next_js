@@ -1,6 +1,7 @@
-import { deleteTodo } from "@/Functions/deleteTodo";
+"use client";
 import DeleteTodo from "./DeleteTodo";
-import EditTodo from "./EditTodo";
+import EditTodoBtn from "./EditTodo";
+import { useState } from "react";
 
 type TodoItemProps = {
   todo: string;
@@ -8,12 +9,14 @@ type TodoItemProps = {
 };
 
 export default function TodoItem({ todo, id }: TodoItemProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   return (
-    <div className="flex justify-between items-center p-2 bg-zinc-700 rounded border border-zinc-200">
+    <div className="flex justify-between items-center p-4 bg-zinc-700 rounded border border-zinc-200 w-full">
       <li className="text-xl text-zinc-200 list-none uppercase">{todo}</li>
       <div className="flex gap-2">
-        <EditTodo id={id} />
-        <DeleteTodo id={id} deleteTodo={deleteTodo} />
+        <EditTodoBtn id={id} disabled={isSubmitting} setIsSubmitting={setIsSubmitting} />
+        <DeleteTodo id={id} disabled={isSubmitting} setIsSubmitting={setIsSubmitting} />
       </div>
     </div>
   );

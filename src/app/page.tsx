@@ -8,7 +8,7 @@ export default async function Home() {
     <div>
       <h1 className="text-center my-8 text-3xl">Todo App. Next Js</h1>
       {todos && todos.length > 0 ? (
-        <ul className="flex flex-col gap-2 w-[80%] mx-auto">
+        <ul className="flex flex-col gap-2 mx-auto">
           {todos.map((todo) => (
             <TodoItem key={todo.id} id={todo.id} todo={todo.todo} />
           ))}
